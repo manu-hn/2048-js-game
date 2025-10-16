@@ -28,38 +28,41 @@ margin: 0;
     margin-bottom: 20px;
 }
 
-.grid{
-    width: 468px;
-    height: 468px;
-    background-color: #bbada0;
-    border: 6px solid #bbada0;
-   border-radius: 8px;
-   margin-top: 20px;
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
+/* make the grid layout responsive for any NxN */
+.grid {
+  display: grid;
+  background-color: #bbada0;
+  border: 6px solid #bbada0;
+  border-radius: 8px;
+  margin-top: 20px;
+  gap: 8px;
+  justify-content: center;
+  width: fit-content; /* container will fit the grid content */
+  padding: 10px; /* optional */
 }
 
-/* Score  - Playboard */
-.grid div{
-    width: 100px;
-    height: 100px;
-    margin: 5px;
-    background-color: #eee4da;
-    color : #afa192;
-    font-weight: bold;
-    text-align: center;
-    font-size: 60px;
-    line-height: 1.6;
-    border-radius: 4px;
+/* tiles */
+.grid .square {
+  aspect-ratio: 1 / 1;
+  min-width: 40px;    /* ensure small boards still look OK */
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: clamp(18px, 3vmin, 48px); /* scales with board */
+  border-radius: 6px;
+  background-color: #eee4da;
+  color: #776e65;
 }
+
 
 /* Score  - Playboard */
 
 
 .score-container{
     text-align: center;
-    width: 70px;
+    width: 160px;
     height: 60px;
     border-radius: 4px;
     background-color:#8f7a66;
@@ -73,4 +76,15 @@ margin: 0;
 
 .score-title{
     font-size: 16px;
+}
+
+#restart{
+    font-size: 20px;
+    text-align: center;
+    padding: 5px 20px;
+    border-radius: 6px;
+    background-color: #8f7a66;
+    color: #fff;
+    border: none;
+    cursor: pointer;
 }
